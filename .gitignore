@@ -1,0 +1,19 @@
+# Images (hosted on Cloudinary)
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.png
+*.PNG
+*.webp
+*.WEBP
+*.gif
+*.GIF
+*.svg
+*.SVG
+
+# macOS
+.DS_Store
+
+# Zip archives
+*.zip
