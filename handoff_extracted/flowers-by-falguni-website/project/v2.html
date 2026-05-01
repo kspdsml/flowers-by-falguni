@@ -1,0 +1,960 @@
+<!DOCTYPE html><html data-src-ver="6748e269" lang="en"><head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers By Falguni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&amp;family=Dancing+Script:wght@600;700&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:    #100b12;
+    --blush:    #1c1220;
+    --blush2:   #251728;
+    --pink:     #e6337a;
+    --pink-light: #c4608e;
+    --dark:     #f2e8ee;
+    --mid:      #c0a0b4;
+    --border:   #3a2540;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    background: #100b12;
+    border-bottom: 1px solid #3a2540;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-logo img {
+    height: 44px; width: 44px;
+    object-fit: contain; display: block; flex-shrink: 0;
+  }
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700; font-size: 17px; line-height: 1.2;
+    color: #f2e8ee; letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .nav-logo-text span { color: #e6337a; font-style: italic; }
+  .nav-links {
+    display: flex; gap: 28px; list-style: none; flex-shrink: 0;
+  }
+  .nav-links a {
+    font-family: 'Jost', sans-serif; font-weight: 500; font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #f2e8ee; text-decoration: none;
+    transition: color 0.2s; white-space: nowrap;
+  }
+  .nav-links a:hover { color: #e6337a; }
+  .nav-cta {
+    font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #100b12; background: #e6337a;
+    padding: 10px 20px; border-radius: 2px;
+    text-decoration: none; transition: opacity 0.2s;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: #f2e8ee; transition: all 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink);
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 84px);
+    font-weight: 700; line-height: 0.95;
+    color: var(--dark); margin-bottom: 8px;
+  }
+  .hero-title-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(60px, 7vw, 96px);
+    font-weight: 700; line-height: 1;
+    color: var(--pink); display: block;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; font-style: italic;
+    color: var(--mid); margin: 28px 0 40px;
+    line-height: 1.5; max-width: 340px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 28px; }
+  .btn-primary {
+    font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cream); background: var(--pink);
+    padding: 15px 36px; border-radius: 2px;
+    text-decoration: none; transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid);
+    text-decoration: none; display: flex; align-items: center; gap: 10px;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--pink); }
+  .btn-secondary::after { content: '→'; font-size: 16px; }
+  .hero-right {
+    position: relative; background: var(--blush);
+    overflow: hidden;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%; min-height: 500px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--blush) 0px,
+      var(--blush) 18px,
+      var(--blush2) 18px,
+      var(--blush2) 20px
+    );
+  }
+  .hero-img-placeholder .ph-label {
+    font-family: 'Jost', sans-serif; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 0 24px;
+  }
+  .hero-img-placeholder svg { opacity: 0.25; }
+  .hero-badge {
+    position: absolute; bottom: 40px; left: -20px;
+    background: var(--cream); border: 1px solid var(--border);
+    padding: 16px 22px; border-radius: 3px;
+    box-shadow: 0 8px 32px rgba(180,80,110,0.1);
+  }
+  .hero-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 700; color: var(--pink);
+    line-height: 1;
+  }
+  .hero-badge-text {
+    font-family: 'Jost', sans-serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--mid); margin-top: 4px;
+  }
+  .hero-petal {
+    position: absolute; opacity: 0.12; pointer-events: none;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-bar {
+    background: var(--pink); overflow: hidden;
+    padding: 14px 0; white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex; gap: 0;
+    animation: marquee 22s linear infinite;
+  }
+  .marquee-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; font-style: italic;
+    color: var(--cream); letter-spacing: 0.06em;
+    padding: 0 32px;
+  }
+  .marquee-dot { color: rgba(255,255,255,0.4); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section { padding: 100px 80px; }
+  .section-label {
+    font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 58px); font-weight: 700;
+    line-height: 1; color: var(--dark);
+  }
+  .section-title em {
+    font-style: italic; color: var(--pink);
+    font-family: 'Dancing Script', cursive; font-size: 1.1em;
+  }
+  .section-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; font-style: italic;
+    color: var(--mid); margin-top: 16px; max-width: 500px;
+    line-height: 1.6;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 64px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    position: relative; overflow: hidden;
+    background: var(--blush); cursor: pointer;
+    aspect-ratio: 3/4;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover { z-index: 2; transform: scale(1.02); }
+  .service-card:hover .service-overlay { opacity: 1; }
+  .service-card:hover .service-img-ph { transform: scale(1.05); }
+  .service-img-ph {
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--blush) 0px,
+      var(--blush) 14px,
+      var(--blush2) 14px,
+      var(--blush2) 16px
+    );
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.5s ease;
+    font-family: 'Jost', sans-serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 24px;
+    flex-direction: column; gap: 12px;
+  }
+  .service-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,18,18,0.7) 0%, transparent 60%);
+    opacity: 0.6; transition: opacity 0.4s;
+  }
+  .service-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 24px;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700; color: #fff;
+    line-height: 1.1;
+  }
+  .service-desc {
+    font-family: 'Jost', sans-serif; font-size: 12px;
+    color: rgba(255,255,255,0.75); margin-top: 6px;
+    letter-spacing: 0.04em; line-height: 1.5;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .service-card:hover .service-desc { max-height: 80px; }
+  .service-tag {
+    display: inline-block;
+    font-family: 'Jost', sans-serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); margin-bottom: 6px;
+  }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--blush); padding-bottom: 80px; }
+  .gallery-header { margin-bottom: 48px; }
+  .gallery-grid {
+    columns: 4; column-gap: 10px;
+  }
+  .gallery-item {
+    break-inside: avoid; margin-bottom: 10px;
+    overflow: hidden; border-radius: 3px;
+    cursor: pointer; position: relative;
+  }
+  .gallery-item:hover .gallery-img-ph { transform: scale(1.04); }
+  .gallery-img-ph {
+    width: 100%; display: block;
+    background: repeating-linear-gradient(
+      60deg,
+      #f0d0da 0px,
+      #f0d0da 12px,
+      #f9dde5 12px,
+      #f9dde5 14px
+    );
+    transition: transform 0.4s ease;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    font-family: 'Jost', sans-serif; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 16px;
+  }
+  .gallery-item:nth-child(1) .gallery-img-ph { height: 280px; }
+  .gallery-item:nth-child(2) .gallery-img-ph { height: 200px; }
+  .gallery-item:nth-child(3) .gallery-img-ph { height: 340px; }
+  .gallery-item:nth-child(4) .gallery-img-ph { height: 220px; }
+  .gallery-item:nth-child(5) .gallery-img-ph { height: 260px; }
+  .gallery-item:nth-child(6) .gallery-img-ph { height: 300px; }
+  .gallery-item:nth-child(7) .gallery-img-ph { height: 180px; }
+  .gallery-item:nth-child(8) .gallery-img-ph { height: 320px; }
+  .gallery-item:nth-child(9) .gallery-img-ph { height: 240px; }
+  .gallery-item:nth-child(10) .gallery-img-ph { height: 200px; }
+  .gallery-item:nth-child(11) .gallery-img-ph { height: 280px; }
+  .gallery-item:nth-child(12) .gallery-img-ph { height: 220px; }
+  .gallery-see-more {
+    text-align: center; margin-top: 48px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .about-image-area { position: relative; }
+  .about-img-main {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--blush);
+    border-radius: 3px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    background: repeating-linear-gradient(
+      -30deg,
+      var(--blush) 0px,
+      var(--blush) 16px,
+      var(--blush2) 16px,
+      var(--blush2) 18px
+    );
+    font-family: 'Jost', sans-serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 24px;
+  }
+  .about-img-accent {
+    position: absolute; width: 55%; aspect-ratio: 1;
+    bottom: -32px; right: -32px;
+    background: var(--blush2); border-radius: 3px;
+    border: 6px solid var(--cream);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    background: repeating-linear-gradient(
+      30deg,
+      var(--blush2) 0px,
+      var(--blush2) 12px,
+      #f4cdd8 12px,
+      #f4cdd8 14px
+    );
+    font-family: 'Jost', sans-serif; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 20px;
+  }
+  .about-content {}
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; font-style: italic;
+    color: var(--pink); line-height: 1.4;
+    border-left: 2px solid var(--pink-light);
+    padding-left: 24px; margin: 32px 0;
+  }
+  .about-body {
+    font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
+    color: var(--mid); line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .about-details {
+    display: flex; gap: 32px; margin-top: 40px;
+  }
+  .about-detail {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .about-detail-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 700; color: var(--pink);
+    line-height: 1;
+  }
+  .about-detail-label {
+    font-family: 'Jost', sans-serif; font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--blush); }
+  .contact-inner {
+    max-width: 720px; margin: 0 auto; text-align: center;
+  }
+  .contact-form {
+    margin-top: 52px; text-align: left;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label {
+    font-family: 'Jost', sans-serif; font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid);
+  }
+  .form-input, .form-select, .form-textarea {
+    font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
+    color: var(--dark); background: var(--cream);
+    border: 1px solid var(--border); border-radius: 2px;
+    padding: 14px 18px; outline: none;
+    transition: border-color 0.2s;
+    width: 100%; appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--pink);
+  }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    width: 100%; margin-top: 28px;
+    font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cream); background: var(--pink);
+    border: none; border-radius: 2px; padding: 18px;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+  .form-submit:hover { opacity: 0.85; }
+  .form-note {
+    text-align: center; margin-top: 20px;
+    font-family: 'Jost', sans-serif; font-size: 13px;
+    color: var(--mid); font-weight: 300;
+  }
+  .form-note a { color: var(--pink); text-decoration: none; }
+  .form-success {
+    display: none; text-align: center; padding: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-style: italic; color: var(--pink);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--blush); color: var(--mid);
+    padding: 48px 80px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+    border-top: 1px solid #3a2540;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: #f2e8ee;
+    letter-spacing: 0.06em;
+  }
+  .footer-logo span { color: var(--pink); font-style: italic; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    font-family: 'Jost', sans-serif; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #f2e8ee; text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--pink); }
+  .footer-copy {
+    font-family: 'Jost', sans-serif; font-size: 12px;
+    letter-spacing: 0.06em; width: 100%; text-align: center;
+    color: #c0a0b4;
+    border-top: 1px solid #3a2540;
+    padding-top: 28px; margin-top: 12px;
+  }
+  .footer-ig {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Jost', sans-serif; font-size: 12px;
+    letter-spacing: 0.1em; color: #f2e8ee;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-ig:hover { color: var(--pink); }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(28,18,18,0.92);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .lightbox.open { opacity: 1; pointer-events: all; }
+  .lightbox-content {
+    background: var(--cream);
+    padding: 60px 48px; max-width: 480px; width: 90%;
+    text-align: center; position: relative;
+    border-radius: 3px;
+  }
+  .lightbox-close {
+    position: absolute; top: 20px; right: 24px;
+    font-size: 24px; cursor: pointer; color: var(--mid);
+    background: none; border: none; line-height: 1;
+  }
+  .lightbox-close:hover { color: var(--pink); }
+  .lightbox-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 700; color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .lightbox-sub {
+    font-family: 'Jost', sans-serif; font-size: 13px;
+    color: var(--mid); margin-bottom: 28px; line-height: 1.6;
+  }
+  .lightbox-cta {
+    display: inline-block;
+    font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream); background: var(--pink);
+    padding: 13px 32px; border-radius: 2px; text-decoration: none;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 99;
+      background: #100b12;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 600; color: #f2e8ee;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--pink); }
+
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 24px 40px; }
+    .hero-right { min-height: 360px; }
+    .hero-badge { bottom: 20px; left: 20px; }
+
+    section { padding: 70px 24px; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { columns: 2; }
+    #about { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
+    .about-img-accent { right: 0; }
+    .about-details { flex-wrap: wrap; }
+    footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-grid { columns: 1; }
+  }
+</style>
+<style>.village-iframe{width:100%;height:100%;border:none;display:block;position:fixed;top:0;left:0;z-index:2147483647;background:#0000003d;color-scheme:light}.village-iframe.village-loading{display:flex;justify-content:center;align-items:center}.village-iframe>.village-spinner{width:1.5rem;height:1.5rem;border:2px solid #000;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin .45s linear infinite}.village-iframe.village-hidden{display:none}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.village-hidden{display:none}[village-paths-data=facepiles]{display:flex;align-items:center;padding-right:.5rem}[village-paths-data=facepiles] img{width:1.5rem;height:1.5rem;border-radius:50%;margin-right:-.5rem}[village-paths-data=facepiles] img.village-facepiler-avatar-not-found{filter:blur(7px)}[village-paths-data=facepiles] img:last-child{margin-right:0}[village-paths-data=count]{padding-right:.25rem}[village-paths-availability=error],[village-paths-availability=found],[village-paths-availability=not-found],[village-paths-availability=not-activated]{display:none!important}[village-paths-availability=loading]{display:inline-flex!important}</style><script id="simplify-jobs-page-script" src="chrome-extension://d9ba4db0-0156-4c8c-a3dc-90e401fcb202/js/pageScript.bundle.js"></script></head>
+<body data-cc-id="cc-1" style="background-color: rgb(252, 232, 236); cursor: crosshair;">
+
+<!-- NAV -->
+<nav id="navbar" class="">
+  <a href="#hero" class="nav-logo">
+    <img src="logo.svg" alt="Flowers By Falguni">
+    <div class="nav-logo-text">Flowers by<br><span>Falguni</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Inquire Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow reveal visible">Garden City, NY · Custom Floral Arrangements</div>
+    <h1 class="hero-title reveal visible" style="transition-delay:0.1s">
+      FLOWERS<br>BY
+      <span class="hero-title-script">Falguni</span>
+    </h1>
+    <p class="hero-tagline reveal visible" style="transition-delay:0.2s">
+      Handcrafted with love for weddings, celebrations &amp; every moment that deserves beauty.
+    </p>
+    <div class="hero-actions reveal visible" style="transition-delay:0.3s">
+      <a href="#contact" class="btn-primary">Request a Custom Order</a>
+      <a href="#gallery" class="btn-secondary">View Work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="14" width="32" height="26" rx="2" stroke="#d4a0b0" stroke-width="1.5" fill="none"></rect>
+        <circle cx="24" cy="27" r="7" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle>
+        <path d="M18 14v-2a6 6 0 0112 0v2" stroke="#d4a0b0" stroke-width="1.5" fill="none"></path>
+      </svg>
+      <span class="ph-label">Hero floral arrangement<br>photograph</span>
+    </div>
+    <div class="hero-badge reveal visible" style="transition-delay:0.5s">
+      <div class="hero-badge-num">500+</div>
+      <div class="hero-badge-text">Custom arrangements<br>crafted</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span class="marquee-item">Indian Wedding Garlands</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Floral Wreaths</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Prom Corsages</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Mother's Day Bouquets</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Puja Arrangements</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Custom Designs</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Indian Wedding Garlands</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Floral Wreaths</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Prom Corsages</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Mother's Day Bouquets</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Puja Arrangements</span>
+    <span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Custom Designs</span>
+    <span class="marquee-item marquee-dot">·</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal visible">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Every occasion,<br><em>beautifully</em> adorned</h2>
+    </div>
+    <p class="section-sub">Each arrangement is handcrafted to order — no two are ever exactly the same.</p>
+  </div>
+  <div class="services-grid reveal visible" style="transition-delay:0.1s">
+
+    <div class="service-card" data-service="Indian Wedding Garlands" data-desc="Traditional varmala &amp; wedding garlands crafted in roses, marigolds, orchids, or any custom bloom. Perfect for Hindu, Jain &amp; South Asian ceremonies.">
+      <div class="service-img-ph">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle><circle cx="16" cy="6" r="3" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle><circle cx="16" cy="26" r="3" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle><circle cx="6" cy="16" r="3" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle><circle cx="26" cy="16" r="3" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle></svg>
+        Wedding garland<br>photograph
+      </div>
+      <div class="service-overlay"></div>
+      <div class="service-info">
+        <span class="service-tag">Weddings &amp; Celebrations</span>
+        <div class="service-name">Indian Wedding<br>Garlands</div>
+        <div class="service-desc">Traditional varmala &amp; garlands in roses, marigolds, orchids &amp; custom blooms.</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="Floral Wreaths" data-desc="Elegant memorial wreaths designed with care and compassion. Custom colors and florals to honor your loved one with dignity.">
+      <div class="service-img-ph">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle><circle cx="16" cy="16" r="6" stroke="#d4a0b0" stroke-width="1.2" fill="none"></circle></svg>
+        Funeral wreath<br>photograph
+      </div>
+      <div class="service-overlay"></div>
+      <div class="service-info">
+        <span class="service-tag">Memorial</span>
+        <div class="service-name">Floral<br>Wreaths</div>
+        <div class="service-desc">Compassionate, elegant memorial wreaths in custom colors and florals.</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="Prom Corsages" data-desc="Wrist and pin-on corsages for prom, homecoming, quinceañeras and formals — designed to match any outfit.">
+      <div class="service-img-ph">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4 Q20 10 16 16 Q12 10 16 4Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path><path d="M28 16 Q22 20 16 16 Q22 12 28 16Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path><path d="M16 28 Q12 22 16 16 Q20 22 16 28Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path><path d="M4 16 Q10 12 16 16 Q10 20 4 16Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path></svg>
+        Corsage<br>photograph
+      </div>
+      <div class="service-overlay"></div>
+      <div class="service-info">
+        <span class="service-tag">Prom &amp; Formals</span>
+        <div class="service-name">Prom<br>Corsages</div>
+        <div class="service-desc">Wrist &amp; pin-on corsages for prom, homecoming &amp; formals — matched to your outfit.</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="Mother's Day Bouquets" data-desc="Seasonal bouquets bursting with fresh roses, tulips, sunflowers, and baby's breath — a perfect gift for Mom.">
+      <div class="service-img-ph">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 26 C16 26 6 18 6 11a10 10 0 0020 0C26 18 16 26 16 26Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path></svg>
+        Mother's Day bouquet<br>photograph
+      </div>
+      <div class="service-overlay"></div>
+      <div class="service-info">
+        <span class="service-tag">Gifts &amp; Occasions</span>
+        <div class="service-name">Mother's Day<br>Bouquets</div>
+        <div class="service-desc">Fresh roses, tulips, sunflowers &amp; baby's breath — bursting with love.</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="Puja Arrangements" data-desc="Flower decorations for Hindu poojas, Navratri garba, Diwali, and festival celebrations. Traditional marigold strings and thali décor available.">
+      <div class="service-img-ph">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><polygon points="16,4 19,13 28,13 21,19 24,28 16,22 8,28 11,19 4,13 13,13" stroke="#d4a0b0" stroke-width="1.2" fill="none"></polygon></svg>
+        Puja arrangement<br>photograph
+      </div>
+      <div class="service-overlay"></div>
+      <div class="service-info">
+        <span class="service-tag">Festivals &amp; Poojas</span>
+        <div class="service-name">Puja &amp; Festival<br>Arrangements</div>
+        <div class="service-desc">Marigold strings, thali décor &amp; garlands for Navratri, Diwali &amp; all celebrations.</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="Custom Orders" data-desc="Have a vision? Let's create it together. Bouquets, centerpieces, engagement trays, coconut décor &amp; more — all 100% custom.">
+      <div class="service-img-ph" style="background: linear-gradient(135deg, var(--blush) 0%, var(--blush2) 100%);">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="#d4a0b0" stroke-width="1.5" stroke-dasharray="4 3" fill="none"></circle><path d="M20 12v16M12 20h16" stroke="#d4a0b0" stroke-width="1.5" stroke-linecap="round"></path></svg>
+        Your custom vision<br>goes here
+      </div>
+      <div class="service-overlay"></div>
+      <div class="service-info">
+        <span class="service-tag">Anything You Dream Of</span>
+        <div class="service-name">Custom<br>Orders</div>
+        <div class="service-desc">Centerpieces, engagement trays, coconut décor &amp; more — 100% custom to your vision.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Our <em>Work</em></h2>
+    <p class="section-sub">A glimpse of what we've created — each piece made with care.</p>
+  </div>
+  <div class="gallery-grid reveal" style="transition-delay:0.1s">
+    <div class="gallery-item"><div class="gallery-img-ph">Wedding garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Heart wreath</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Flower garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Prom corsage</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Bouquet</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Navratri garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Funeral wreath</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Rose garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Custom arrangement</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Carnation wreath</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Sunflower bouquet</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Engagement tray</div></div>
+  </div>
+  <div class="gallery-see-more reveal">
+    <a href="https://instagram.com/flowersbyfalguni" target="_blank" class="btn-primary">See More on Instagram</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image-area reveal">
+    <div class="about-img-main">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle><circle cx="20" cy="20" r="6" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle><circle cx="20" cy="6" r="3" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle><circle cx="20" cy="34" r="3" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle><circle cx="6" cy="20" r="3" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle><circle cx="34" cy="20" r="3" stroke="#d4a0b0" stroke-width="1.5" fill="none"></circle></svg>
+      Portrait of Falguni<br>with her arrangements
+    </div>
+    <div class="about-img-accent">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2 Q18 8 14 14 Q10 8 14 2Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path><path d="M26 14 Q20 18 14 14 Q20 10 26 14Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path><path d="M14 26 Q10 20 14 14 Q18 20 14 26Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path><path d="M2 14 Q8 10 14 14 Q8 18 2 14Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"></path></svg>
+      At-work detail shot
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-label reveal">The Story</div>
+    <h2 class="section-title reveal" style="transition-delay:0.1s">Made with<br><em>love</em> from home</h2>
+    <blockquote class="about-quote reveal" style="transition-delay:0.15s">
+      "We don't just create bouquets — we create emotions."
+    </blockquote>
+    <p class="about-body reveal" style="transition-delay:0.2s">
+      Hi, I'm Falguni — a home-based floral artist based near Garden City, NY. What started as a passion for bringing beauty to celebrations has grown into a small business built entirely on word of mouth, love, and fresh flowers.
+    </p>
+    <p class="about-body reveal" style="transition-delay:0.25s">
+      Every arrangement I create is made to order, by hand, with the care and attention you'd expect from a friend — not a factory. Whether it's a traditional Indian wedding garland, a heartfelt Mother's Day bouquet, or something completely one-of-a-kind, I work with you to bring your vision to life.
+    </p>
+    <div class="about-details reveal" style="transition-delay:0.3s">
+      <div class="about-detail">
+        <div class="about-detail-num">500+</div>
+        <div class="about-detail-label">Arrangements<br>crafted</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-num">3+</div>
+        <div class="about-detail-label">Years of<br>experience</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-num">100%</div>
+        <div class="about-detail-label">Custom &amp;<br>handmade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label reveal">Get in Touch</div>
+    <h2 class="section-title reveal" style="transition-delay:0.1s">Let's create<br>something <em>beautiful</em></h2>
+    <p class="section-sub reveal" style="transition-delay:0.15s; margin: 16px auto 0; text-align:center;">
+      Send me a message and I'll get back to you within 24 hours. Same-day orders welcome when available.
+    </p>
+
+    <form class="contact-form reveal" style="transition-delay:0.2s" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="Priya Sharma" required="">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-input" placeholder="(516) 555-0100">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="priya@email.com" required="">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Occasion / Service</label>
+          <select class="form-select">
+            <option value="" disabled="" selected="">Select an occasion…</option>
+            <option>Indian Wedding Garlands</option>
+            <option>Floral Wreath</option>
+            <option>Prom Corsage</option>
+            <option>Mother's Day Bouquet</option>
+            <option>Puja / Festival Arrangement</option>
+            <option>Custom Order</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Event Date</label>
+          <input type="date" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Budget Range</label>
+          <select class="form-select">
+            <option value="" disabled="" selected="">Select a range…</option>
+            <option>Under $50</option>
+            <option>$50 – $100</option>
+            <option>$100 – $250</option>
+            <option>$250 – $500</option>
+            <option>$500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label class="form-label">Tell me about your vision</label>
+          <textarea class="form-textarea" placeholder="Colors, flowers, style, quantity — any details help me create exactly what you're imagining…"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">Send My Inquiry →</button>
+      <p class="form-note">Or DM directly on <a href="https://instagram.com/flowersbyfalguni" target="_blank">@flowersbyfalguni</a></p>
+    </form>
+    <div class="form-success" id="formSuccess">
+      Thank you! I'll be in touch within 24 hours. ✿
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Flowers by <span>Falguni</span></div>
+  <nav class="footer-links" style="color: rgb(0, 0, 0)">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="https://instagram.com/flowersbyfalguni" target="_blank" class="footer-ig">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+    @flowersbyfalguni
+  </a>
+  <div class="footer-copy">© 2026 Flowers By Falguni · Garden City, NY · All arrangements handcrafted to order</div>
+</footer>
+
+<!-- SERVICE LIGHTBOX -->
+<div class="lightbox" id="serviceLightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <div class="lightbox-title" id="lbTitle"></div>
+    <p class="lightbox-sub" id="lbDesc"></p>
+    <a href="#contact" class="lightbox-cta" id="lbCta">Inquire About This →</a>
+  </div>
+</div>
+
+<script>
+  // Nav scroll state
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-link').forEach(l => {
+    l.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Service card lightbox
+  const lightbox = document.getElementById('serviceLightbox');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbDesc = document.getElementById('lbDesc');
+  const lbCta = document.getElementById('lbCta');
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      lbTitle.textContent = card.dataset.service;
+      lbDesc.textContent = card.dataset.desc;
+      lbCta.href = '#contact';
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+  lbCta.addEventListener('click', () => lightbox.classList.remove('open'));
+
+  // Form submit
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+
+
+</body></html>

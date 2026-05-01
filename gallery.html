@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery Flowers By Falguni</title>
+<meta name="description" content="Browse our portfolio of handcrafted floral arrangements wedding garlands, wreaths, corsages, bouquets, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Dancing+Script:wght@600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  #gallery { background: var(--cream); padding-bottom: 80px; }
+
+  .gallery-grid { columns: 4; column-gap: 10px; margin-top: 56px; }
+  .gallery-item {
+    break-inside: avoid; margin-bottom: 10px;
+    overflow: hidden; border-radius: 3px; cursor: pointer;
+  }
+  .gallery-item:hover .gallery-img-ph { transform: scale(1.04); }
+  .gallery-img-ph {
+    width: 100%; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    background: repeating-linear-gradient(60deg, #f0d0da 0px, #f0d0da 12px, var(--blush2) 12px, var(--blush2) 14px);
+    transition: transform 0.4s ease;
+    font-family: 'Jost', sans-serif; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 16px;
+  }
+  .gallery-item:nth-child(1)  .gallery-img-ph { height: 280px; }
+  .gallery-item:nth-child(2)  .gallery-img-ph { height: 200px; }
+  .gallery-item:nth-child(3)  .gallery-img-ph { height: 340px; }
+  .gallery-item:nth-child(4)  .gallery-img-ph { height: 220px; }
+  .gallery-item:nth-child(5)  .gallery-img-ph { height: 260px; }
+  .gallery-item:nth-child(6)  .gallery-img-ph { height: 300px; }
+  .gallery-item:nth-child(7)  .gallery-img-ph { height: 180px; }
+  .gallery-item:nth-child(8)  .gallery-img-ph { height: 320px; }
+  .gallery-item:nth-child(9)  .gallery-img-ph { height: 240px; }
+  .gallery-item:nth-child(10) .gallery-img-ph { height: 200px; }
+  .gallery-item:nth-child(11) .gallery-img-ph { height: 280px; }
+  .gallery-item:nth-child(12) .gallery-img-ph { height: 220px; }
+
+  .gallery-footer { text-align: center; margin-top: 56px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .gallery-footer-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; font-style: italic;
+    color: var(--mid);
+  }
+
+  @media (max-width: 900px) { .gallery-grid { columns: 2; } }
+  @media (max-width: 560px) { .gallery-grid { columns: 1; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Flowers By Falguni" onerror="this.classList.add('hidden')">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Offerings</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Inquire Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html"    class="mobile-link">Home</a>
+  <a href="services.html" class="mobile-link">Offerings</a>
+  <a href="contact.html"  class="mobile-link">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="section-label">Portfolio</div>
+  <h1 class="section-title">Our <em>Work</em></h1>
+  <p class="section-sub">A glimpse of what we've created each piece made with care and crafted to order.</p>
+</div>
+
+<section id="gallery">
+  <div class="gallery-grid reveal">
+    <div class="gallery-item"><div class="gallery-img-ph">Wedding garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Heart wreath</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Flower garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Prom floral</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Bouquet</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Navratri garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Funeral wreath</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Rose garland</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Custom arrangement</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Carnation wreath</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Sunflower bouquet</div></div>
+    <div class="gallery-item"><div class="gallery-img-ph">Engagement tray</div></div>
+  </div>
+  <div class="gallery-footer reveal">
+    <p class="gallery-footer-note">See even more of our work on Instagram</p>
+    <a href="https://instagram.com/flowersbyfalguni" target="_blank" rel="noopener" class="btn-primary">@flowersbyfalguni →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo">Flowers by <span>Falguni</span></span>
+      <p class="footer-tagline">Handcrafted floral arrangements for life's most meaningful moments.</p>
+      <a href="https://instagram.com/flowersbyfalguni" target="_blank" rel="noopener" class="footer-ig">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @flowersbyfalguni
+      </a>
+    </div>
+    <div>
+      <div class="footer-col-title">Offerings</div>
+      <ul class="footer-links-list">
+        <li><a href="services.html">Indian Wedding Garlands</a></li>
+        <li><a href="services.html">Floral Wreaths</a></li>
+        <li><a href="services.html">Prom Florals</a></li>
+        <li><a href="services.html">Mother's Day Arrangements</a></li>
+        <li><a href="services.html">Puja Arrangements</a></li>
+        <li><a href="services.html">Custom Orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Offerings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-newsletter-title">Stay in the loop</div>
+      <p class="footer-newsletter-sub">New seasonal collections, special offers, and flower inspiration straight to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" aria-label="Email address">
+        <button class="newsletter-btn" type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Flowers By Falguni · Garden City, NY · All arrangements handcrafted to order</div>
+    <div class="footer-policy-links">
+      <a href="contact.html">Contact</a>
+      <a href="https://instagram.com/flowersbyfalguni" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

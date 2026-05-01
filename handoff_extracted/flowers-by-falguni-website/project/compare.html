@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers By Falguni — 3 Design Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a1218; font-family: 'Jost', sans-serif; }
+
+  .canvas-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    height: 56px;
+    background: #100b10;
+    border-bottom: 1px solid #3a2540;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px;
+  }
+  .canvas-header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600; color: #f2e8f0;
+    letter-spacing: 0.06em;
+  }
+  .canvas-header-title span { color: #e6337a; font-style: italic; }
+  .canvas-header-hint {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  #canvas-root { height: 100vh; }
+
+  /* Version label badges */
+  .version-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Jost', sans-serif; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .v-dot { width: 8px; height: 8px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<div class="canvas-header">
+  <div class="canvas-header-title">Flowers by <span>Falguni</span> — Design Directions</div>
+  <div class="canvas-header-hint">Click any version to open full page · Scroll to zoom · Drag to pan</div>
+</div>
+
+<div id="canvas-root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+const versions = [
+  {
+    id: 'v1',
+    label: 'Version 1',
+    subtitle: 'Soft & Romantic',
+    description: 'Warm cream & blush palette · Cormorant Garamond + Dancing Script · editorial typography mixing · current direction',
+    file: 'v1.html',
+    dotColor: '#e6337a',
+    width: 1440,
+    height: 900,
+  },
+  {
+    id: 'v2',
+    label: 'Version 2',
+    subtitle: 'Dark & Luxe',
+    description: 'Deep charcoal background · white text · hot pink accents · dramatic high-fashion florist feel',
+    file: 'v2.html',
+    dotColor: '#c060a0',
+    width: 1440,
+    height: 900,
+  },
+  {
+    id: 'v3',
+    label: 'Version 3',
+    subtitle: 'Botanical Garden',
+    description: 'Warm ivory & sage green · Playfair Display + Libre Baskerville · earthy organic nature-forward',
+    file: 'v3.html',
+    dotColor: '#5a9a50',
+    width: 1440,
+    height: 900,
+  },
+];
+
+function VersionCard({ v }) {
+  return (
+    <div style={{ width: '100%', height: '100%', position: 'relative', background: '#0f0a10', borderRadius: 4, overflow: 'hidden' }}>
+      <iframe
+        src={v.file}
+        style={{ width: '100%', height: 'calc(100% - 80px)', border: 'none', display: 'block', pointerEvents: 'none' }}
+        scrolling="no"
+        title={v.label}
+      />
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        background: 'rgba(10,6,12,0.92)', backdropFilter: 'blur(8px)',
+        padding: '12px 20px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        borderTop: '1px solid rgba(255,255,255,0.08)',
+      }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: v.dotColor, flexShrink: 0 }}></div>
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 16, fontWeight: 700, color: '#f2e8f0', letterSpacing: '0.04em' }}>
+              {v.label}: <em style={{ color: v.dotColor }}>{v.subtitle}</em>
+            </span>
+          </div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.06em', paddingLeft: 16 }}>{v.description}</div>
+        </div>
+        <a
+          href={v.file}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: "'Jost', sans-serif", fontSize: 11, fontWeight: 500,
+            letterSpacing: '0.14em', textTransform: 'uppercase',
+            color: '#0f0a10', background: v.dotColor,
+            padding: '8px 18px', borderRadius: 2, textDecoration: 'none',
+            whiteSpace: 'nowrap', flexShrink: 0, marginLeft: 20,
+          }}
+        >
+          Open Full ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <DesignCanvas>
+      <DCSection id="directions" title="Design Directions — Choose Your Favourite">
+        {versions.map(v => (
+          <DCArtboard key={v.id} id={v.id} label={`${v.label}: ${v.subtitle}`} width={v.width} height={v.height}>
+            <VersionCard v={v} />
+          </DCArtboard>
+        ))}
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('canvas-root')).render(<App />);
+</script>
+</body>
+</html>

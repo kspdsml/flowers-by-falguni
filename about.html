@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Flowers By Falguni</title>
+<meta name="description" content="Meet Falguni a home-based floral artist in Garden City, NY, creating handcrafted arrangements for weddings, festivals, and every special occasion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Dancing+Script:wght@600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── ABOUT SECTION ── */
+  #about {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-image-area { position: relative; }
+  .about-img-main {
+    width: 100%; aspect-ratio: 3/4; border-radius: 3px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    background: repeating-linear-gradient(-30deg, var(--blush) 0px, var(--blush) 16px, var(--blush2) 16px, var(--blush2) 18px);
+    font-family: 'Jost', sans-serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 24px;
+  }
+  .about-img-accent {
+    position: absolute; width: 55%; aspect-ratio: 1;
+    bottom: -32px; right: -32px; border-radius: 3px;
+    border: 6px solid var(--cream); overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    background: repeating-linear-gradient(30deg, var(--blush2) 0px, var(--blush2) 12px, #f4cdd8 12px, #f4cdd8 14px);
+    font-family: 'Jost', sans-serif; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink-light); text-align: center; padding: 20px;
+  }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; font-style: italic;
+    color: var(--pink); line-height: 1.4;
+    border-left: 2px solid var(--pink-light);
+    padding-left: 24px; margin: 32px 0;
+  }
+  .about-body {
+    font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
+    color: var(--mid); line-height: 1.9; margin-bottom: 20px;
+  }
+  .about-details { display: flex; gap: 32px; margin-top: 40px; flex-wrap: wrap; }
+  .about-detail { display: flex; flex-direction: column; gap: 4px; }
+  .about-detail-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 700; color: var(--pink); line-height: 1;
+  }
+  .about-detail-label {
+    font-family: 'Jost', sans-serif; font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid);
+  }
+
+  /* ── VALUES ── */
+  #values { background: var(--blush); }
+  .values-header { text-align: center; margin-bottom: 64px; }
+  .values-header .section-sub { margin: 16px auto 0; text-align: center; }
+  .values-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    max-width: 1000px; margin: 0 auto;
+  }
+  .value-item { text-align: center; }
+  .value-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--cream); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .value-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700; color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .value-desc {
+    font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
+    color: var(--mid); line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    #about { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
+    .about-img-accent { right: 0; }
+    .values-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Flowers By Falguni" onerror="this.classList.add('hidden')">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Offerings</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Inquire Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html"    class="mobile-link">Home</a>
+  <a href="services.html" class="mobile-link">Offerings</a>
+  <a href="contact.html"  class="mobile-link">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="section-label">The Story</div>
+  <h1 class="section-title">Made with<br><em>love</em> from home</h1>
+  <p class="section-sub">Every arrangement starts with a conversation and ends with something beautiful.</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image-area reveal">
+    <div class="about-img-main">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="14" stroke="#d4a0b0" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="20" r="6"  stroke="#d4a0b0" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="6"  r="3"  stroke="#d4a0b0" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="34" r="3"  stroke="#d4a0b0" stroke-width="1.5" fill="none"/>
+        <circle cx="6"  cy="20" r="3"  stroke="#d4a0b0" stroke-width="1.5" fill="none"/>
+        <circle cx="34" cy="20" r="3"  stroke="#d4a0b0" stroke-width="1.5" fill="none"/>
+      </svg>
+      Portrait of Falguni<br>with her arrangements
+    </div>
+    <div class="about-img-accent">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M14 2 Q18 8 14 14 Q10 8 14 2Z"    stroke="#d4a0b0" stroke-width="1.2" fill="none"/>
+        <path d="M26 14 Q20 18 14 14 Q20 10 26 14Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"/>
+        <path d="M14 26 Q10 20 14 14 Q18 20 14 26Z" stroke="#d4a0b0" stroke-width="1.2" fill="none"/>
+        <path d="M2 14 Q8 10 14 14 Q8 18 2 14Z"    stroke="#d4a0b0" stroke-width="1.2" fill="none"/>
+      </svg>
+      At-work detail shot
+    </div>
+  </div>
+  <div>
+    <div class="section-label reveal">Hi, I'm Falguni</div>
+    <blockquote class="about-quote reveal" style="transition-delay:0.1s">
+      "We don't just create bouquets we create emotions."
+    </blockquote>
+    <p class="about-body reveal" style="transition-delay:0.15s">
+      I'm a home-based floral artist based near Garden City, NY. What started as a passion for bringing beauty to celebrations has grown into a small business built entirely on word of mouth, love, and fresh flowers.
+    </p>
+    <p class="about-body reveal" style="transition-delay:0.2s">
+      Every arrangement I create is made to order, by hand, with the care and attention you'd expect from a friend not a factory. Whether it's a traditional Indian wedding garland, a heartfelt Mother's Day arrangement, or something completely one-of-a-kind, I work closely with you to bring your vision to life.
+    </p>
+    <p class="about-body reveal" style="transition-delay:0.25s">
+      I specialize in South Asian ceremonies and celebrations varmala garlands, Navratri décor, Diwali arrangements, and puja thali flowers as well as prom season, memorial wreaths, and all the everyday moments that deserve something beautiful.
+    </p>
+    <div class="about-details reveal" style="transition-delay:0.3s">
+      <div class="about-detail">
+        <div class="about-detail-num">500+</div>
+        <div class="about-detail-label">Arrangements<br>crafted</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-num">3+</div>
+        <div class="about-detail-label">Years of<br>experience</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-num">100%</div>
+        <div class="about-detail-label">Custom &amp;<br>handmade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="values-header reveal">
+    <div class="section-label">What I Believe In</div>
+    <h2 class="section-title">The <em>heart</em> behind the work</h2>
+    <p class="section-sub">Three things I bring to every single arrangement.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-item reveal" style="transition-delay:0.05s">
+      <div class="value-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M13 22 C13 22 3 15 3 9a7 7 0 0114 0 7 7 0 0114 0C23 15 13 22 13 22Z" stroke="#d63375" stroke-width="1.4" fill="none"/>
+        </svg>
+      </div>
+      <div class="value-title">Made with Love</div>
+      <p class="value-desc">Every stem is placed with intention. I treat each order as if it were for someone I love because in a way, it always is.</p>
+    </div>
+    <div class="value-item reveal" style="transition-delay:0.15s">
+      <div class="value-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="10" stroke="#d63375" stroke-width="1.4" fill="none"/>
+          <path d="M9 13l3 3 5-5" stroke="#d63375" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="value-title">Your Vision First</div>
+      <p class="value-desc">I listen first and create second. Your color palette, your preferences, your occasion those always lead the design.</p>
+    </div>
+    <div class="value-item reveal" style="transition-delay:0.25s">
+      <div class="value-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M13 3L15.5 9.5L22 10.5L17 15L18.5 22L13 18.5L7.5 22L9 15L4 10.5L10.5 9.5Z" stroke="#d63375" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="value-title">Always Fresh</div>
+      <p class="value-desc">Nothing is pre-made. Every arrangement is assembled to order with the freshest blooms available never sitting on a shelf.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo">Flowers by <span>Falguni</span></span>
+      <p class="footer-tagline">Handcrafted floral arrangements for life's most meaningful moments.</p>
+      <a href="https://instagram.com/flowersbyfalguni" target="_blank" rel="noopener" class="footer-ig">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @flowersbyfalguni
+      </a>
+    </div>
+    <div>
+      <div class="footer-col-title">Offerings</div>
+      <ul class="footer-links-list">
+        <li><a href="services.html">Indian Wedding Garlands</a></li>
+        <li><a href="services.html">Floral Wreaths</a></li>
+        <li><a href="services.html">Prom Florals</a></li>
+        <li><a href="services.html">Mother's Day Arrangements</a></li>
+        <li><a href="services.html">Puja Arrangements</a></li>
+        <li><a href="services.html">Custom Orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Offerings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-newsletter-title">Stay in the loop</div>
+      <p class="footer-newsletter-sub">New seasonal collections, special offers, and flower inspiration straight to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" aria-label="Email address">
+        <button class="newsletter-btn" type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Flowers By Falguni · Garden City, NY · All arrangements handcrafted to order</div>
+    <div class="footer-policy-links">
+      <a href="contact.html">Contact</a>
+      <a href="https://instagram.com/flowersbyfalguni" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
