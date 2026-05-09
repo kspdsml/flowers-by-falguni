@@ -116,6 +116,27 @@
   .offerings-note a { color: var(--pink); text-decoration: none; }
   .offerings-note a:hover { text-decoration: underline; }
 
+  .price-card-img { cursor: zoom-in; }
+
+  .img-lightbox {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(28,18,18,0.92);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s;
+  }
+  .img-lightbox.open { opacity: 1; pointer-events: all; }
+  .img-lightbox img {
+    max-width: min(90vw, 600px); max-height: 85vh;
+    object-fit: contain; border-radius: 3px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+  .img-lightbox-close {
+    position: fixed; top: 20px; right: 24px;
+    font-size: 32px; line-height: 1; cursor: pointer;
+    color: #fff; background: none; border: none; opacity: 0.8;
+  }
+  .img-lightbox-close:hover { opacity: 1; }
+
   @media (max-width: 900px) {
     .offerings-grid { grid-template-columns: repeat(2, 1fr); }
     .offerings-grid .price-card:nth-child(7) { grid-column: auto; }
@@ -359,6 +380,26 @@
     document.getElementById('mdBanner').style.display = 'none';
     document.body.style.paddingTop = '0';
   })();
+
+  // Image lightbox
+  const lightbox    = document.getElementById('imgLightbox');
+  const lightboxImg = document.getElementById('imgLightboxImg');
+  document.querySelectorAll('.price-card-img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  function closeLightbox() { lightbox.classList.remove('open'); }
+  document.getElementById('imgLightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
+
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true">
+  <button class="img-lightbox-close" id="imgLightboxClose" aria-label="Close">&#x2715;</button>
+  <img id="imgLightboxImg" src="" alt="">
+</div>
 </body>
 </html>
