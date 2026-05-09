@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mother's Day Arrangements Flowers By Falguni</title>
-<meta name="description" content="Handcrafted Mother's Day floral arrangements by Falguni. Five unique offerings made fresh to order in Garden City, NY.">
+<meta name="description" content="Handcrafted Mother's Day floral arrangements by Falguni. Seven unique offerings made fresh to order in Garden City, NY.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Dancing+Script:wght@600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -25,9 +25,8 @@
     margin: 0 auto;
   }
 
-  /* center the last two cards when grid has 3 cols and 5 items */
-  .offerings-grid .price-card:nth-child(4) { grid-column: 1; margin-left: auto; width: 100%; }
-  .offerings-grid .price-card:nth-child(5) { grid-column: 2; width: 100%; }
+  /* center the last card when grid has 3 cols and 7 items */
+  .offerings-grid .price-card:nth-child(7) { grid-column: 2; }
 
   .price-card {
     background: #fff;
@@ -119,8 +118,7 @@
 
   @media (max-width: 900px) {
     .offerings-grid { grid-template-columns: repeat(2, 1fr); }
-    .offerings-grid .price-card:nth-child(4),
-    .offerings-grid .price-card:nth-child(5) { grid-column: auto; margin-left: 0; }
+    .offerings-grid .price-card:nth-child(7) { grid-column: auto; }
   }
   @media (max-width: 560px) {
     .offerings-grid { grid-template-columns: 1fr; }
@@ -195,7 +193,7 @@
 <div class="page-header">
   <div class="section-label">Mother's Day</div>
   <h1 class="section-title">A gift she'll<br><em>never forget</em></h1>
-  <p class="section-sub">Five handcrafted arrangements made fresh to order. Order early, spots fill fast.</p>
+  <p class="section-sub">Seven handcrafted arrangements made fresh to order. Order early, spots fill fast.</p>
 </div>
 
 <section id="offerings">
@@ -268,6 +266,30 @@
         <div class="price-card-divider"></div>
         <p class="price-card-desc">Our most luxurious Mother's Day offering, a lush, full arrangement brimming with premium roses and seasonal blooms.</p>
         <a href="contact.html?item=Garden+of+Ros%C3%A9" class="price-card-cta">Order This →</a>
+      </div>
+    </div>
+
+    <!-- ── CARD 6: Floral Purse ── -->
+    <div class="price-card reveal" style="transition-delay:0.3s">
+      <img src="https://res.cloudinary.com/dvmg7p5ib/image/upload/q_auto/f_auto/v1778353662/white_bag_wwmvka.jpg" alt="Floral Purse" class="price-card-img">
+      <div class="price-card-body">
+        <div class="price-card-name">Floral Purse</div>
+        <div class="price-card-price">$25</div>
+        <div class="price-card-divider"></div>
+        <p class="price-card-desc">A charming white purse adorned with handcrafted floral accents. A gift she can carry with her long after Mother's Day.</p>
+        <a href="contact.html?item=Floral+Purse" class="price-card-cta">Order This →</a>
+      </div>
+    </div>
+
+    <!-- ── CARD 7: Decorative Floral Bouquet ── -->
+    <div class="price-card reveal" style="transition-delay:0.35s">
+      <img src="https://res.cloudinary.com/dvmg7p5ib/image/upload/q_auto/f_auto/v1778354664/4A2E9A3D-170E-4C16-803E-991078FC363E_xb91lz.jpg" alt="Decorative Floral Bouquet" class="price-card-img">
+      <div class="price-card-body">
+        <div class="price-card-name">Decorative Floral Bouquet</div>
+        <div class="price-card-price">$45</div>
+        <div class="price-card-divider"></div>
+        <p class="price-card-desc">A vibrant, handcrafted bouquet designed to brighten any room. Fresh seasonal blooms arranged with care, ready to make her day.</p>
+        <a href="contact.html?item=Decorative+Floral+Bouquet" class="price-card-cta">Order This →</a>
       </div>
     </div>
 
