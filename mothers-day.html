@@ -363,6 +363,11 @@
   </div>
 </footer>
 
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true">
+  <button class="img-lightbox-close" id="imgLightboxClose" aria-label="Close">&#x2715;</button>
+  <img id="imgLightboxImg" src="" alt="">
+</div>
+
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
@@ -396,10 +401,5 @@
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
-
-<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true">
-  <button class="img-lightbox-close" id="imgLightboxClose" aria-label="Close">&#x2715;</button>
-  <img id="imgLightboxImg" src="" alt="">
-</div>
 </body>
 </html>
