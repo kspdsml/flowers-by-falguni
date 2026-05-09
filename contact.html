@@ -419,7 +419,9 @@
     'I Love Mom': '$35',
     "I'd Die 4 Mom": '$45',
     'Bloom Tote': '$40',
-    'Garden of Rosé': '$65'
+    'Garden of Rosé': '$65',
+    'Floral Purse': '$25',
+    'Decorative Floral Bouquet': '$45'
   };
   document.getElementById('occasion').addEventListener('change', function() {
     const isMD = this.value === "Mother's Day Arrangement";
@@ -459,6 +461,26 @@
     const submitBtn = document.querySelector('.form-submit');
     const errorEl   = document.getElementById('formError');
     errorEl.style.display = 'none';
+
+    // Validate required fields
+    const nameVal  = document.getElementById('name').value.trim();
+    const emailVal = document.getElementById('email').value.trim();
+    const phoneVal = document.getElementById('phone').value.trim();
+    if (!nameVal) {
+      errorEl.textContent = 'Please enter your name.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      errorEl.textContent = 'Please enter a valid email address.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (!/^\+?[\d\s\-().]{7,}$/.test(phoneVal)) {
+      errorEl.textContent = 'Please enter a valid phone number.';
+      errorEl.style.display = 'block';
+      return;
+    }
 
     // Validate file count
     const files = Array.from(document.getElementById('photos').files);
