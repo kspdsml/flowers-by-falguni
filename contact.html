@@ -112,6 +112,12 @@
     font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
     color: var(--pink);
   }
+  .field-error {
+    display: none;
+    font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+    color: var(--pink); margin-top: 5px;
+  }
+  .form-input.input-invalid { border-color: var(--pink); }
 
   @media (max-width: 900px) {
     .contact-layout { grid-template-columns: 1fr; gap: 48px; }
@@ -254,16 +260,19 @@
           <div class="form-group">
             <label class="form-label" for="name">Your Name</label>
             <input id="name" type="text" class="form-input" placeholder="Priya Sharma" required>
+            <span class="field-error" id="nameError">Please enter your name.</span>
           </div>
           <div class="form-group">
             <label class="form-label" for="phone">Phone Number</label>
             <input id="phone" type="tel" class="form-input" placeholder="(516) 555-0100">
+            <span class="field-error" id="phoneError">Please enter a valid phone number.</span>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="email">Email Address</label>
             <input id="email" type="email" class="form-input" placeholder="priya@email.com" required>
+            <span class="field-error" id="emailError">Please enter a valid email address.</span>
           </div>
           <div class="form-group">
             <label class="form-label" for="occasion">Occasion / Service</label>
@@ -455,6 +464,27 @@
 
   emailjs.init('M8zWWM3TDyS5OZANH');
 
+  // Inline field validation helpers
+  const nameEl  = document.getElementById('name');
+  const emailEl = document.getElementById('email');
+  const phoneEl = document.getElementById('phone');
+  const nameErr  = document.getElementById('nameError');
+  const emailErr = document.getElementById('emailError');
+  const phoneErr = document.getElementById('phoneError');
+
+  function showFieldError(el, errEl) { el.classList.add('input-invalid'); errEl.style.display = 'block'; }
+  function clearFieldError(el, errEl) { el.classList.remove('input-invalid'); errEl.style.display = 'none'; }
+  function validateName()  { return nameEl.value.trim().length > 0; }
+  function validateEmail() { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim()); }
+  function validatePhone() { return /^\+?[\d\s\-().]{7,}$/.test(phoneEl.value.trim()); }
+
+  nameEl.addEventListener('blur',  () => { if (!validateName())  showFieldError(nameEl, nameErr);   });
+  nameEl.addEventListener('input', () => { if (validateName())   clearFieldError(nameEl, nameErr);  });
+  emailEl.addEventListener('blur',  () => { if (!validateEmail()) showFieldError(emailEl, emailErr); });
+  emailEl.addEventListener('input', () => { if (validateEmail())  clearFieldError(emailEl, emailErr); });
+  phoneEl.addEventListener('blur',  () => { if (!validatePhone()) showFieldError(phoneEl, phoneErr); });
+  phoneEl.addEventListener('input', () => { if (validatePhone())  clearFieldError(phoneEl, phoneErr); });
+
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
@@ -463,24 +493,11 @@
     errorEl.style.display = 'none';
 
     // Validate required fields
-    const nameVal  = document.getElementById('name').value.trim();
-    const emailVal = document.getElementById('email').value.trim();
-    const phoneVal = document.getElementById('phone').value.trim();
-    if (!nameVal) {
-      errorEl.textContent = 'Please enter your name.';
-      errorEl.style.display = 'block';
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-      errorEl.textContent = 'Please enter a valid email address.';
-      errorEl.style.display = 'block';
-      return;
-    }
-    if (!/^\+?[\d\s\-().]{7,}$/.test(phoneVal)) {
-      errorEl.textContent = 'Please enter a valid phone number.';
-      errorEl.style.display = 'block';
-      return;
-    }
+    let hasError = false;
+    if (!validateName())  { showFieldError(nameEl, nameErr);   hasError = true; }
+    if (!validateEmail()) { showFieldError(emailEl, emailErr); hasError = true; }
+    if (!validatePhone()) { showFieldError(phoneEl, phoneErr); hasError = true; }
+    if (hasError) return;
 
     // Validate file count
     const files = Array.from(document.getElementById('photos').files);
